@@ -35,7 +35,7 @@ export default function ShalemTours() {
 
       <header className="text-center py-12">
         <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-4 drop-shadow-sm">ShalemTours</h1>
-        <p className="text-xl md:text-2xl text-gray-600">הסעות מיניבוס בדרום, מרכז והשפלה</p>
+        <p className="text-xl md:text-2xl text-gray-600">הסעות מיניבוס בכל חלקי הארץ</p>
       </header>
 
       <div className="mb-16 flex justify-center">
