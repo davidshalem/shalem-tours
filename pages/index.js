@@ -52,7 +52,7 @@ export default function ShalemTours() {
         className="text-center py-12"
       >
         <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-4 drop-shadow-sm">ShalemTours</h1>
-        <p className="text-xl md:text-2xl text-gray-600">הסעות מיניבוס בדרום, מרכז והשפלה</p>
+        <p className="text-xl md:text-2xl text-gray-600">הסעות מיניבוס לכל חלקי הארץ</p>
       </motion.header>
 
       <motion.div
@@ -80,7 +80,7 @@ export default function ShalemTours() {
             <li>מיניבוס חדש ומפואר</li>
             <li>נהגים מוסמכים עם ניסיון</li>
             <li>שירות אמין, מקצועי וזמין</li>
-            <li>כיסוי אזורי נרחב בדרום, מרכז ושפלה</li>
+            <li>כיסוי אזורי נרחב </li>
           </ul>
         </motion.div>
 
