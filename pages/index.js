@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { Phone, MapPin, Clock, MessageSquare, X } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const MinibusImage = "/minibus.jpeg";
 
@@ -16,13 +17,24 @@ export default function ShalemTours() {
   }, []);
 
   return (
-    <div dir="rtl" className="relative min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-100 text-gray-800 px-4 md:px-12 font-assistant">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      dir="rtl"
+      className="relative min-h-screen bg-gradient-to-br from-blue-100 via-white to-yellow-50 text-gray-800 px-4 md:px-12 font-assistant"
+    >
       <Head>
         <title>ShalemTours - שירותי הסעות</title>
       </Head>
 
       {showBanner && (
-        <div className="fixed bottom-6 right-6 bg-yellow-100 border border-yellow-300 text-yellow-800 px-6 py-4 rounded-xl shadow-lg z-50 flex items-center gap-4 animate-bounce-slow">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="fixed bottom-6 right-6 bg-yellow-100 border border-yellow-300 text-yellow-800 px-6 py-4 rounded-xl shadow-lg z-50 flex items-center gap-4"
+        >
           <div className="flex-1">
             <p className="text-lg font-semibold">🎉 10% הנחה להזמנה ראשונה השבוע!</p>
             <p className="text-sm">שלחו לנו הודעה עכשיו ב־WhatsApp והזמינו</p>
@@ -30,15 +42,25 @@ export default function ShalemTours() {
           <button onClick={() => setShowBanner(false)} className="text-yellow-700 hover:text-yellow-900">
             <X className="w-5 h-5" />
           </button>
-        </div>
+        </motion.div>
       )}
 
-      <header className="text-center py-12">
+      <motion.header
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="text-center py-12"
+      >
         <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-4 drop-shadow-sm">ShalemTours</h1>
-        <p className="text-xl md:text-2xl text-gray-600">הסעות מיניבוס בכל חלקי הארץ</p>
-      </header>
+        <p className="text-xl md:text-2xl text-gray-600">הסעות מיניבוס בדרום, מרכז והשפלה</p>
+      </motion.header>
 
-      <div className="mb-16 flex justify-center">
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="mb-16 flex justify-center"
+      >
         <Image
           src={MinibusImage}
           alt="Shalem Tours Minibus"
@@ -46,10 +68,13 @@ export default function ShalemTours() {
           height={700}
           className="rounded-3xl shadow-xl w-full max-w-screen-lg"
         />
-      </div>
+      </motion.div>
 
       <section className="grid md:grid-cols-2 gap-10 mb-20">
-        <div className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition"
+        >
           <h2 className="text-3xl font-bold mb-4 text-blue-700">למה לבחור בנו?</h2>
           <ul className="list-disc list-inside space-y-2 text-right text-gray-700 text-lg">
             <li>מיניבוס חדש ומפואר</li>
@@ -57,20 +82,29 @@ export default function ShalemTours() {
             <li>שירות אמין, מקצועי וזמין</li>
             <li>כיסוי אזורי נרחב בדרום, מרכז ושפלה</li>
           </ul>
-        </div>
+        </motion.div>
 
-        <div className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition">
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition"
+        >
           <h2 className="text-3xl font-bold mb-4 text-blue-700">השירותים שלנו</h2>
           <ul className="list-disc list-inside space-y-2 text-right text-gray-700 text-lg">
             <li>הסעות לאירועים משפחתיים ועסקיים</li>
-            <li>שירות לנתב"ג 24/6 (לא כולל שבת)</li>
+            <li>שירות לנתב"ג 24/6 (לא בשבת)</li>
             <li>טיולים פרטיים לקבוצות קטנות</li>
             <li>שירותי הסעות לחברות וארגונים</li>
           </ul>
-        </div>
+        </motion.div>
       </section>
 
-      <section className="bg-blue-50 rounded-3xl shadow-inner p-10 mb-20">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="bg-blue-50 rounded-3xl shadow-inner p-10 mb-20"
+      >
         <h2 className="text-3xl font-bold mb-6 text-center text-blue-800">צרו קשר להזמנה</h2>
         <div className="flex flex-col items-center space-y-5">
           <div className="flex items-center gap-3 text-lg text-gray-700">
@@ -83,7 +117,7 @@ export default function ShalemTours() {
             <MapPin className="text-blue-600" /> <span>ניר עקיבא, ישראל</span>
           </div>
           <div className="flex items-center gap-3 text-lg text-gray-700">
-            <Clock className="text-blue-600" /> <span>שירות 24/6 - לא בשבת</span>
+            <Clock className="text-blue-600" /> <span>שירות 24/6 – לא בשבת</span>
           </div>
 
           <a
@@ -121,16 +155,14 @@ export default function ShalemTours() {
               required
               className="w-full border border-gray-300 p-3 rounded-lg text-lg"
             ></textarea>
-            <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg text-lg font-semibold transition">
-              שלח
-            </button>
+            <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg text-lg font-semibold transition">שלח</button>
           </form>
         </div>
-      </section>
+      </motion.section>
 
       <footer className="text-center text-sm text-gray-500 pb-8">
         © {new Date().getFullYear()} ShalemTours. כל הזכויות שמורות.
       </footer>
-    </div>
+    </motion.div>
   );
 }
